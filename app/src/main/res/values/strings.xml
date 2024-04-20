@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ANDROID_EASYEATS_VIEWS_PROTOTYPE</string>
+
+
+    <string name="sampleTitle">Easy Eats Swiping Card Demo Test</string>
+
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

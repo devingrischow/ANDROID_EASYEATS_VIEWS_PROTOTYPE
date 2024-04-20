@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainnav"
+    app:startDestination="@id/carouselDashMainFragment">
+    <fragment
+        android:id="@+id/carouselDashMainFragment"
+        android:name="com.example.android_easyeats_views_prototype.carouselcomponents.CarouselFragment"
+        android:label="fragment_carousel_dash_main"
+        tools:layout="@layout/fragment_carousel" />
+</navigation>
