@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    spacing value for in between each card-->
+    <dimen name="carousel_spacing">16dp</dimen>
+    <dimen name="prominent_threshold">72dp</dimen>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FoodCardCell"
+    android:layout_width="300dp"
+    android:layout_height="657dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+
+
+    android:background="@drawable/primarylightgradient"
+    >
+
+
+    <!--    layout width and height made with DP so rezise to multiple screen sizes-->
+    <!--    relative layout for card cells, currently from figma. -->
+
+    <ImageView
+        android:id="@+id/FoodCardImage"
+        android:layout_width="match_parent"
+        android:layout_height="426dp"
+        tools:srcCompat="@android:drawable/alert_dark_frame" />
+
+
+    <TextView
+        android:id="@+id/FoodCardTitle"
+        style="@style/FoodCardTitle"
+        android:layout_width="274dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/FoodCardImage"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="110dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

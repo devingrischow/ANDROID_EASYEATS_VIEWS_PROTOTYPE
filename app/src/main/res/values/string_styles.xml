@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FoodCardTitle">
+        <!--        Declaring various styling attributes-->
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0.07</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
