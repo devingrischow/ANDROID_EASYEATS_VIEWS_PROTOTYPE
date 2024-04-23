@@ -54,7 +54,7 @@ internal class ProminentCardLayoutManager(
         Log.d(R.string.CardSizeCalcTag.toString(), "scale distance thresh: $scaleDistanceThreshold")
 
 
-        var translationXForwardDrag = 0f
+        var translationXForwardValue = 0f
 
         //For Every item, UNTIL the child count of the children amount, do the following...
         //Childcount from LAYOUT MANAGER
@@ -89,6 +89,19 @@ internal class ProminentCardLayoutManager(
             //SET TRANSLATION VALUES FOR THE CADS
 
             //these values determine the animations between the different cards, and how to handle animations/TRANSLATIONS
+            val translationDirection = if (childCENTER > childCENTER) - 1 else 1
+            Log.d(R.string.CardTranslationTag.toString(), "translation direction value for card $i: $translationDirection")
+
+            //Translation for X from SCALE value
+            val translationXFromScale = translationDirection * child.width * (1 - scale) / 2f
+            Log.d(R.string.CardTranslationTag.toString(), "translation for X From Scale value for card $i: $translationXFromScale")
+
+            //apply the translation for X from the scale, plus how much to move the scale forward
+            child.translationX = translationXFromScale + translationXForwardValue
+
+            //
+
+
 
 
 
