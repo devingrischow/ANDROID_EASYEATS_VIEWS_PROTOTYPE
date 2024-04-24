@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.android_easyeats_views_prototype"
-        minSdk = 34
+        minSdk = 26 //ENABLES APP TO BE COMPATIBLE with android phones whose version # is 8 OR HIGHER
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -55,5 +55,10 @@ dependencies {
     //Navigation and Fragment Implementation
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    //Picasso Import
+    implementation ("com.squareup.picasso:picasso:2.5.2")
+
+
 
 }

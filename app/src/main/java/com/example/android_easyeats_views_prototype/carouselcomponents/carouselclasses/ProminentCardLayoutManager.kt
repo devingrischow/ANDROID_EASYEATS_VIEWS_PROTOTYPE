@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_easyeats_views_prototype.R
 import kotlin.math.abs
+import kotlin.math.roundToInt
 
 
 //Internal class for how to handle the main prominent card layout.
@@ -43,6 +44,18 @@ internal class ProminentCardLayoutManager(
             }
     }
 
+    //OVERRIDE the SCROLL HORIZONTAL VALUE
+    override fun scrollHorizontallyBy(
+        dx: Int,
+        recycler: RecyclerView.Recycler?,
+        state: RecyclerView.State?
+
+        //on scroll horizontally is to be overided by me still declaring the scroll by, however ALSO calling
+        //SCALE by children, to apply the scale and transition effect
+    ) = super.scrollHorizontallyBy(dx, recycler, state).also { scaleChildren() }
+
+
+
     private fun scaleChildren() {
 
         //assign a variable to the center of the card/container
@@ -67,7 +80,7 @@ internal class ProminentCardLayoutManager(
             Log.d(R.string.CardSizeCalcTag.toString(), "Child Center Value for card $i: $childCENTER")
 
             //calculate the distance to the center from
-            val distanceToViewCenter = abs(childCENTER - childCENTER)
+            val distanceToViewCenter = abs(childCENTER - cardCenter)
             Log.d(R.string.CardSizeCalcTag.toString(), "Child view distance to view center for $i: $distanceToViewCenter")
 
             //set the child to activated if the distance if the distance to center is less than prominent threshold
@@ -75,7 +88,7 @@ internal class ProminentCardLayoutManager(
             Log.d(R.string.CardSizeCalcTag.toString(), "Activation State for Card #$i: ${distanceToViewCenter < prominentCardThreshold}")
 
             //calculate the amount to scale down the CARD by
-            val scaleDownAmount = (distanceToViewCenter / scaleDistanceThreshold)
+            val scaleDownAmount = (distanceToViewCenter / scaleDistanceThreshold).coerceAtMost(1f)
             Log.d(R.string.CardSizeCalcTag.toString(), "Scale Down Amount for card $i: $scaleDownAmount")
 
             //directly calculate the scale amount to use for the view
@@ -89,7 +102,7 @@ internal class ProminentCardLayoutManager(
             //SET TRANSLATION VALUES FOR THE CADS
 
             //these values determine the animations between the different cards, and how to handle animations/TRANSLATIONS
-            val translationDirection = if (childCENTER > childCENTER) - 1 else 1
+            val translationDirection = if (childCENTER > cardCenter) - 1 else 1
             Log.d(R.string.CardTranslationTag.toString(), "translation direction value for card $i: $translationDirection")
 
             //Translation for X from SCALE value
@@ -99,7 +112,29 @@ internal class ProminentCardLayoutManager(
             //apply the translation for X from the scale, plus how much to move the scale forward
             child.translationX = translationXFromScale + translationXForwardValue
 
-            //
+            //Reset the translaton X Forward value to 0 AFTER the animation
+            translationXForwardValue = 0f
+
+
+            //Check If the translationXFrom scale is greater than *0*
+            // AND the view index is greater than or equal to 1
+            if (translationXFromScale > 0 && i >= 1 ) {
+
+                //edit the last child and move it forward by 2 *Times*, times the translation X FROM SCALE
+                getChildAt(i - 1)!!.translationX += 2 * translationXFromScale
+                Log.d(R.string.CardTranslationTag.toString(), "translation test values is greater than 0 and index is greater than 1 for $i")
+
+            }
+            //now checxk if the translationXfromScale is LESS THAN 0,
+            //if it IS,
+            //set the forward translation to 2 * the translationX from SCALE
+            else if (translationXFromScale < 0) {
+
+                //calculate the translation
+                translationXForwardValue = 2 * translationXFromScale
+                Log.d(R.string.CardTranslationTag.toString(), "translation test values is less than 0 $i: $translationXForwardValue")
+
+            }
 
 
 
@@ -117,6 +152,15 @@ internal class ProminentCardLayoutManager(
 
 
     }
+
+
+    //OVERRIDE the EXTRA LAYOUT SPACE,
+    // helps handle how to to layout cards offscreen,
+    //the more sclaed down, the more space is needed
+    override fun getExtraLayoutSpace(state: RecyclerView.State?): Int {
+        return (width / (1 - scaleDownBy)).roundToInt()
+    }
+
 
 
 }

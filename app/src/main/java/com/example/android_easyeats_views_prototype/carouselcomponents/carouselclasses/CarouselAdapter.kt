@@ -1,11 +1,16 @@
 package com.example.android_easyeats_views_prototype.carouselcomponents.carouselclasses
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android_easyeats_views_prototype.R
 import com.example.android_easyeats_views_prototype.carouselcomponents.carouseldataobjects.Food
 import com.example.android_easyeats_views_prototype.databinding.CardccellviewBinding
+import com.squareup.picasso.Picasso
+import kotlinx.coroutines.withContext
+
 
 internal class CarouselAdapter: RecyclerView.Adapter<CarouselAdapter.CardCellBinder>(){
 
@@ -45,6 +50,17 @@ internal class CarouselAdapter: RecyclerView.Adapter<CarouselAdapter.CardCellBin
         fun bind(foodData:Food){
             //bind NAME
             itemBinding.FoodCardTitle.text = foodData.foodName
+
+            //use context of the IMAGE VIEW
+            Picasso.with(itemBinding.FoodCardImage.context)
+                .load(foodData.image) //LOAD THE FOOD DATA from the objects image
+                .resize(301,426)
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_background)
+                .centerCrop()
+                .into(itemBinding.FoodCardImage) //LOAD THE IMAGE INTO the food card image
+
+            Log.d("PICASSO", "IMG TO LOAD ${foodData.image}")
 
 
         }

@@ -16,11 +16,23 @@
     <!--    layout width and height made with DP so rezise to multiple screen sizes-->
     <!--    relative layout for card cells, currently from figma. -->
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/FoodCardImage"
         android:layout_width="match_parent"
         android:layout_height="426dp"
-        tools:srcCompat="@android:drawable/alert_dark_frame" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/foodcard_image"
+        android:clipToOutline="true"
+        />
+
+
+
+
+
 
 
     <TextView

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    make the background transparent-->
+    <solid android:color="@android:color/transparent"/>
+
+<!--    DECLARE THE CORNERS-->
+<!--Only need the top corners to be rounded -->
+    <corners android:topRightRadius="15dp" android:topLeftRadius="15dp"/>
+
+
+</shape>
