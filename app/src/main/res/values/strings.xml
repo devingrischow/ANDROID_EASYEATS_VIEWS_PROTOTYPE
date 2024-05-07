@@ -4,9 +4,11 @@
 
     <string name="sampleTitle">Easy Eats Swiping Card Demo Test</string>
 
-
-<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="CardSizeCalcTag">CARDSIZECALCULATION</string>
-    <string name="CardTranslationTag">CARDTRANSLATION</string>
+
+<!--    LOG TAG STRINGS-->
+    <string name="CardSizeCalcTag">CARD_SIZE_CALCULATION</string>
+    <string name="CardTranslationTag">CARD_TRANSLATION</string>
+    <string name="CardSwipeAction">CARD_SWIPE_ACTION</string>
+    <string name="FSFOODRETRIEVAL">FS_FOOD_RETRIEVAL</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.android_easyeats_views_prototype.carouselcomponents.carouselclasses
 
+import android.animation.ObjectAnimator
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ internal class CarouselAdapter: RecyclerView.Adapter<CarouselAdapter.CardCellBin
     //List that contains the foods that will be displayed
     private var foodList = emptyList<Food>()
 
+    private lateinit var foodBinding:CardccellviewBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardCellBinder {
         val itemBinder = CardccellviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -38,7 +40,24 @@ internal class CarouselAdapter: RecyclerView.Adapter<CarouselAdapter.CardCellBin
         //bind food holder
         holder.bind(currFood)
 
+        //set the binding to the class level used binder
 
+
+//            .setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+//
+//            Log.d("SCROLLTAG", "SCROLLED BY AMOUNTX $scrollX,Y $scrollY ")
+//
+//
+//        }
+
+    }
+
+    fun animateCardData(itemPosition:Int){
+
+        val animatedCard = ObjectAnimator.ofFloat()
+
+        //reference to the selected foods binder
+        val selectedFoodBinding = foodList[itemPosition]
 
     }
 
@@ -48,6 +67,9 @@ internal class CarouselAdapter: RecyclerView.Adapter<CarouselAdapter.CardCellBin
 
         //binding function for the list binder
         fun bind(foodData:Food){
+
+
+
             //bind NAME
             itemBinding.FoodCardTitle.text = foodData.foodName
 
@@ -73,6 +95,8 @@ internal class CarouselAdapter: RecyclerView.Adapter<CarouselAdapter.CardCellBin
         //notify data set change so it changes the items in the list
         notifyDataSetChanged()
     }
+
+
 
 
 

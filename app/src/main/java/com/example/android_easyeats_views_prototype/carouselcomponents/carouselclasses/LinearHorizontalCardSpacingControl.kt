@@ -40,12 +40,15 @@ class LinearHorizontalCardSpacingControl(@Px private val innerSpacing:Int): Recy
 
         //change the values for the right and left spacings of the outer rectangle
 
+        //TODO: Change paddings for starting card so only 1 card appears in the middle
         //if its the first item, dont have any spacing on the *LEFT side, otherwise for all normal cards take the provided inner spacing / 2 (half for each side)
         outRect.left = if (cardIndex == 0) 0 else innerSpacing / 2
 
         //Follow for the same thing for the RIGHT, except this time test for if its the FINAL card
         outRect.right = if (cardIndex == state.itemCount - 1) 0 else innerSpacing / 2
     }
+
+
 
 
 }

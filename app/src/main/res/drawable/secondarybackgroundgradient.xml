@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- drawable/rectangle_5.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners
+        android:radius="15dp">
+    </corners>
+
+    <gradient
+        android:startColor="#2FBAD9"
+        android:endColor="#85F9B5"
+        android:type="linear"
+        android:angle="-79"
+        android:startX="75.25"
+        android:startY="115.5"
+        android:endX="225.75"
+        android:endY="115.5">
+    </gradient>
+
+
+</shape>
