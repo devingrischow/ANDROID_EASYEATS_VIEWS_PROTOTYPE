@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "300449635552",
+    "project_id": "easyeatstestingcloud",
+    "storage_bucket": "easyeatstestingcloud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300449635552:android:8c657ee2029d62a5b50485",
+        "android_client_info": {
+          "package_name": "com.example.android_easyeats_views_prototype"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwrkKXFi6QrKqGzMk9xmahjYk353Znvh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
